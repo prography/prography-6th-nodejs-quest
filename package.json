@@ -17,11 +17,13 @@
     "@babel/core": "^7.8.4",
     "@babel/node": "^7.8.4",
     "@babel/polyfill": "^7.8.3",
+    "@babel/preset-env": "^7.8.4",
     "nodemon": "^2.0.2"
   },
   "scripts": {
     "test": "jest",
-    "dev": "babel-node --watch src"
+    "dev": "nodemon",
+    "start": "babel-node src"
   },
   "repository": {
     "type": "git",
@@ -33,5 +35,11 @@
   "bugs": {
     "url": "https://github.com/geusan/prography-6th-nodejs-quest/issues"
   },
-  "homepage": "https://github.com/geusan/prography-6th-nodejs-quest#readme"
+  "homepage": "https://github.com/geusan/prography-6th-nodejs-quest#readme",
+  "nodemonConfig": {
+    "watch": [
+      "src/*"
+    ],
+    "exec": "babel-node src"
+  }
 }
