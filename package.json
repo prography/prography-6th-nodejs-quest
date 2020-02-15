@@ -1,0 +1,37 @@
+{
+  "name": "nodejs-quest",
+  "version": "1.0.0",
+  "description": "> NodeJS 전형의 점수는 **면접(70%), 과제(30%)** 입니다. 과제의 미완성이 합격에 큰 영향을 주지 않습니다.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jest": "^25.1.0",
+    "multer": "^1.4.2",
+    "supertest": "^4.0.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/node": "^7.8.4",
+    "@babel/polyfill": "^7.8.3",
+    "nodemon": "^2.0.2"
+  },
+  "scripts": {
+    "test": "jest",
+    "dev": "babel-node --watch src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/geusan/prography-6th-nodejs-quest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/geusan/prography-6th-nodejs-quest/issues"
+  },
+  "homepage": "https://github.com/geusan/prography-6th-nodejs-quest#readme"
+}
