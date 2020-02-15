@@ -6,6 +6,4 @@ app.use('/hello-world', (req, res) => {
   res.send('hello world');
 })
 
-export {
-  app
-};
+export default app;
