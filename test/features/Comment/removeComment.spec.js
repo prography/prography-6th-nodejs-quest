@@ -8,5 +8,8 @@ describe('testComment', () => {
     const res = await testClient
       .delete(`/todos/${process.env.TEST_TODO_ID}/comments/${process.env.TEST_COMMENT_ID}`);
     expect(res.status).toBe(200);
+    expect(res.body).matchObject({
+      msg: 'success',
+    });
   })
 })

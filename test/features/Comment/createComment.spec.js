@@ -12,5 +12,6 @@ describe('testComment', () => {
       .post(`/todos/${process.env.TEST_TODO_ID}/comments`)
       .send(payload);
     expect(res.status).toBe(200);
+    expect(res.body).toMatchObject(payload);
   })
 })

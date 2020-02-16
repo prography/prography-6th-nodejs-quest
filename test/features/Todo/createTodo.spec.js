@@ -14,5 +14,6 @@ describe('testTodo', () => {
       .post('/todos')
       .send(payload);
     expect(res.status).toBe(200);
+    expect(res.body).toMatchObject(payload);
   })
 })
