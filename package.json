@@ -59,6 +59,9 @@
     "testEnvironment": "node",
     "transform": {
       "^.+\\.[t|j]sx?$": "babel-jest"
-    }
+    },
+    "setupFiles": [
+      "test/setup.js"
+    ]
   }
 }
