@@ -61,7 +61,7 @@
       "^.+\\.[t|j]sx?$": "babel-jest"
     },
     "setupFiles": [
-      "test/setup.js"
+      "./test/setup.js"
     ]
   }
 }
