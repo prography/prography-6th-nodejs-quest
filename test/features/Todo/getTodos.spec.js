@@ -10,11 +10,14 @@ describe('testTodo', () => {
     expect(res.status).toBe(200);
     expect(Array.isArray(res.body)).toBe(true);
     res.body.forEach((todo) => {
-      expect(Object.keys(todo)).toBe(expect.arrayContaining([
+      expect(
+        Object.keys(todo)
+      ).toEqual(expect.arrayContaining([
         'id',
         'title',
         'description',
         'isCompleted',
+        'tags',
         'createdAt',
         'updatedAt',
       ]))

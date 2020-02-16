@@ -8,7 +8,9 @@ describe('testComment', () => {
     const res = await testClient
       .get(`/todos/${process.env.TEST_TODO_ID}/comments/${process.env.TEST_COMMENT_ID}`)
     expect(res.status).toBe(200);
-    expect(Object.keys(res.body)).toBe(expect.arrayContaining([
+    expect(
+      Object.keys(res.body)
+    ).toEqual(expect.arrayContaining([
       'id',
       'contents',
       'createdAt',

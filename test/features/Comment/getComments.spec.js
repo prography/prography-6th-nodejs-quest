@@ -9,7 +9,9 @@ describe('testComment', () => {
       .get(`/todos/${process.env.TEST_TODO_ID}/comments`)
     expect(res.status).toBe(200);
     res.body.forEach((comment) => {
-      expect(Object.keys(comment)).toBe(expect.arrayContaining([
+      expect(
+        Object.keys(comment)
+      ).toEqual(expect.arrayContaining([
         'id',
         'contents',
         'createdAt',

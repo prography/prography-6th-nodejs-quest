@@ -8,7 +8,7 @@ describe('testTodo', () => {
     const res = await testClient
       .delete(`/todos/${process.env.TEST_TODO_ID}`);
     expect(res.status).toBe(200);
-    expect(res.body).matchObject({
+    expect(res.body).toMatchObject({
       msg: 'success',
     });
   })
