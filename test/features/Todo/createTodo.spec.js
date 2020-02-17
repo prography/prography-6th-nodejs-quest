@@ -15,5 +15,6 @@ describe('testTodo', () => {
       .send(payload);
     expect(res.status).toBe(200);
     expect(res.body).toMatchObject(payload);
+    process.env.TEST_TODO_ID = res.body.id;
   })
 })
