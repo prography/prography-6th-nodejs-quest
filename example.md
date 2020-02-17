@@ -25,8 +25,8 @@
        "description": "할일 설명",
        "tags": ["prograpy", "Nodejs"],
        "isCompleted": false,
-       "createdAt": 	2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-17T08:00:00,
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-17T08:00:00",
      }
      ```
 
@@ -44,19 +44,19 @@
          "id": 1,
          "title": "할일의 제목",
          "description": "할일 설명",
-       	"tags": ["prograpy", "Nodejs"],
-       	"isCompleted": false,
-       	"createdAt": 2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       	"updatedAt": 2019-02-17T08:00:00
+       	 "tags": ["prograpy", "Nodejs"],
+       	 "isCompleted": false,
+       	 "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       	 "updatedAt": "2019-02-17T08:00:00"
      	},
        {
          "id": 2,
          "title": "할일의 제목",
-       	"description": "할일 설명",
-       	"tags": ["prograpy", "Nodejs"],
-       	"isCompleted": true,
-       	"createdAt": 2019-02-17T09:00:00,
-       	"updatedAt": 2019-02-17T12:0:00,
+       	 "description": "할일 설명",
+       	 "tags": ["prograpy", "Nodejs"],
+       	 "isCompleted": true,
+       	 "createdAt": "2019-02-17T09:00:00",
+       	 "updatedAt": "2019-02-17T12:0:00",
      	}
      ]
      ```
@@ -76,8 +76,8 @@
        "description": "할일 설명",
        "tags": ["prograpy", "Nodejs"],
        "isCompleted": false,
-       "createdAt": 	2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-17T08:00:00,
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-17T08:00:00",
      }
      ```
 
@@ -114,8 +114,8 @@
        "description": "할일 설명",
        "tags": ["prograpy", "Nodejs"],
        "isCompleted": false,
-       "createdAt": 	2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-19T19:00:00,
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-19T19:00:00",
      }
      ```
 
@@ -127,15 +127,15 @@
 
    - response
 
-     ```javascript
+     ```json
      {
        "id": 1,
        "title": "프로그라피 일정 수정",
        "description": "할일 설명",
        "tags": ["prograpy", "Nodejs"],
        "isCompleted": true,
-       "createdAt": 	2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-28T19:30:00,
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-28T19:30:00",
      }
      ```
 
@@ -173,8 +173,8 @@
      {
        "id": 1,
        "contents": "댓글",
-       "createdAt": 2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-17T08:00:00
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-17T08:00:00"
      }
      ```
      
@@ -188,16 +188,16 @@
      ```json
      [
        {
-         "id": 1,
+        "id": 1,
        	"contents": "댓글",
-       	"createdAt": 2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       	"updatedAt": 2019-02-17T08:00:00
+       	"createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       	"updatedAt": "2019-02-17T08:00:00"
      	},
        {
          "id": 2,
          "contents": "댓글22222",
-       	createdAt: 2019-02-17T12:00:00,
-       	updatedAt: 2019-02-17T12:00:00
+       	 "createdAt": "2019-02-17T12:00:00",
+       	 "updatedAt": "2019-02-17T12:00:00"
        }
      ]
      ```
@@ -216,8 +216,8 @@
      {
        "id": 1,
        "contents": "댓글",
-       "createdAt": 2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-       "updatedAt": 2019-02-17T08:00:00
+       "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+       "updatedAt": "2019-02-17T08:00:00"
      }
      ```
 
@@ -240,9 +240,9 @@
       ```json
       {
         "id": 1,
-        "contents": '댓글 수정',
-        "createdAt": 2019-02-17T08:00:00, // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
-        "updatedAt": 2019-02-18T012:00:00
+        "contents": "댓글 수정",
+        "createdAt": "2019-02-17T08:00:00", // 날짜의 포맷은 예시일뿐 어떤 포맷이어도 상관없습니다
+        "updatedAt": "2019-02-18T012:00:00"
       }
       ```
 
