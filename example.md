@@ -1,7 +1,5 @@
 ## request response 예시
 
-----------------
-
 1. 할일 등록: `POST /todos`
 
    ex) localhost:3000/todos
@@ -263,8 +261,6 @@
       
 
 ## :warning: 유의사항
-
---------------------
 
 :one: **request**(요청)은/는 **예시와 key가 동일**해야합니다. <span style="color: red">그외 key가 있을 시 테스트가 제대로 안될 수 있습니다!</span> 
 
