@@ -58,7 +58,7 @@
 10. 댓글 수정: `PUT /todos/:todoId/comments/:commentId`
 11. 댓글 삭제: `DELETE /todos/:todoId/comments/:commentId`
 
-각 API는 다음의 응답 특징을 가집니다.
+각 API는 다음의 응답 특징을 가집니다. [response, request 예시](./example.md)
 
 - 목록(GET) 기능은 배열형식으로 응답됩니다.
 - 읽기(GET) 기능은 내용 필드들이 object 형태로 응답됩니다.
