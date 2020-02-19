@@ -75,10 +75,8 @@
 
 ### 제출방법
 
-이 레포를 지원자의 Github으로 fork 한뒤에 개발을 진행합니다. 마감일 기준 KST 23:59:59 까지의 커밋까지 인정이됩니다.
-이 버튼을 눌러주세요.
- <!-- Place this tag where you want the button to render. -->
-<a class="github-button" href="https://github.com/ntkme/github-buttons/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork ntkme/github-buttons on GitHub">Fork</a>
+이 레포를 지원자의 Github으로 fork 한뒤에 개발을 진행합니다. 마감일 기준 KST 23:59:59 까지의 커밋까지 인정이됩니다.[여기](./fork)를 눌러 시작해주세요.
+ 
 
 ### 가산점 항목
 
