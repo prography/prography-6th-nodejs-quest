@@ -21,6 +21,7 @@
 
 ## 과제
 
+이 레포를 fork 하고 진행합니다. [여기](./../../fork)를 눌러 진행 해주시기 바랍니다.
 할일을 만들고 관리를 할 수 있는 Restful API 서버를 구현해주시기 바랍니다.
 이 프로그램은 다음과 같은 기능이 있습니다.
 
@@ -99,7 +100,3 @@
 [test](./test) 폴더에 정의되어있습니다.
 
 `npm test` 를 통해 실시할 수 있습니다.
-
-
-<!-- Place this tag in your head or just before your close body tag. -->
-<script async defer src="https://buttons.github.io/buttons.js"></script>
