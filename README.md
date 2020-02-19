@@ -4,18 +4,20 @@
 
 ## 개요
 
-이 과제는 프로그라피 활동에 필요한 기초적인 개발 능력을 측정합니다. API 구현 과제로 할일을 기록 관리할 수 있는 서버 어플리케이션을 만듭니다. 전체 API 목록 중 **정상 작동하는 API의 갯수를 세는 방식** 으로 채점합니다. 채점에는 e2e 테스트를 진행합니다. 테스트 라이브러리로는 [jest](https://jestjs.io/)와 [supertest](https://github.com/visionmedia/supertest)를 사용합니다.
+이 과제는 프로그라피 활동에 필요한 기초적인 개발 능력을 테스트합니다. 요구사항에 맞게 API 서버를 구현할 수 있는가를 테스트합니다. 전체 API 목록 중 **정상 작동하는 API의 갯수를 세는 방식** 으로 개발이 정상적으로 수행 되었음을 판단합니다. 작성한 API에 적절한 요청을 넣었을 때, 원하는 응답이 나오는지 확인을 하는 e2e 테스트를 통해 채점을 합니다. 테스트 라이브러리는 [jest](https://jestjs.io/)와 [supertest](https://github.com/visionmedia/supertest)를 사용합니다.
 
-과제 수행에는 테스트 수행을 위해 가장 많이 쓰이는 서버 프레임워크 [express](https://www.npmjs.com/package/express)를 사용하는 것을 권장합니다. 현재 이 과제가 속해있는 레포에 샘플 앱이 구현되어 있으며, 이외에 다른 라이브러리를 사용하셔도 불이익은 전혀없습니다. 데이터베이스와 ORM 선택은 완전 자유입니다.
+과제 수행에는 nodejs 서버개발에 가장 많이 쓰이는 서버 프레임워크 [express](https://www.npmjs.com/package/express)로 셋팅이 되어있습니다. 이 레포를 클론하였을 때, `npm start`로 작동하는 서버를 확인할수 있습니다. 이 과제는 express로 구현되어 잇지만, 원하는 프레임워크가 따로 있다면, 사용하셔도 불이익은 전혀 없습니다. 데이터베이스와 ORM 선택은 완전 자유입니다.
+
+더 궁금한 것이 있으시면 **NodeJS 운영진 [오픈채팅방]()** 으로 오세요! ~~(날씨 물어보셔도 되요)~~
 
 ## 개발환경
-
-오직 개발에만 전념할 수 있도록 개발유틸 일부가 포함된 상태입니다. `npm start`로 실행할 수 있습니다.
-`src/` 폴더 내에서 자유롭게 개발해주시면 됩니다.
 
 - Node 10 이상
 - ES6 이상 문법 사용(babel-node)
 - nodemon(코드 수정시 자동 재시작)
+- express
+- body-parser
+- dotenv
 
 ## 과제
 
@@ -24,13 +26,19 @@
 
 - 할일이 있다.
 - 할일은 다음의 필드를 가지고 있다.
-  - 식별아이디(id) - 자동생성
-  - 제목(title)
-  - 설명(description)
-  - 태그목록(tags)
-  - 완료 여부(isCompleted) - 초깃값: false
-  - 생성일(createdAt) - 자동생성
-  - 수정일(updatedAt) - 자동생성
+
+  ```Typescript
+  Todo {
+    id: number; // 숫자, 자동 생성
+    title: string; // 문자열, 필수값
+    description: string; // 문자열, 필수 값,
+    tags: string[]; // 배열, 옵션 ex) ["prography", "nodejs"]
+    isCompleted: boolean; // 참불, 초깃값: false
+    createdAt: Date; // 날짜, 생성시 자동 생성
+    updatedAt: Date; // 날짜, 생성시 자동 생성, 수정시 자동 갱신,
+  }
+  ```
+
 - 할일을 등록/수정/삭제 할 수 있다.
 - 할일을 완료 표시를 할 수 있다.
 - 할일에 태그를 삽입할 수 있다.
@@ -39,12 +47,17 @@
 - 할일을 제목 또는 설명의 내용의 일부분으로 검색할 수 있다.
 - 할일에 코멘트(댓글)을 등록/수정/삭제 할 수 있다.
 - 코멘트는 다음의 필드를 가지고 있다.
-  - 식별아이디(id) - 자동생성
-  - 내용(contents)
-  - 생성일(createdAt) - 자동생성
-  - 수정일(updatedAt) - 자동생성
 
-이 서버에서 요구하는 API는 총 11개입니다.
+  ```Typescript
+    Comment {
+      id: number; // 숫자, 자동 생성
+      contents: string; // 문자열, 필수값
+      createdAt: Date; // 날짜, 생성시 자동 생성
+      updatedAt: Date; // 날짜, 생성시 자동 생성, 수정시 자동 갱신,
+    }
+    ```
+
+이 서버에서 요구하는 **API는 총 11개**입니다.
 
 1. 할일 등록: `POST /todos`
 2. 할일 목록: `GET /todos`
@@ -58,17 +71,18 @@
 10. 댓글 수정: `PUT /todos/:todoId/comments/:commentId`
 11. 댓글 삭제: `DELETE /todos/:todoId/comments/:commentId`
 
-각 API는 다음의 응답 특징을 가집니다. [response, request 예시](./example.md)
+각 API는 다음의 응답 특징을 가집니다. 더 자세한 내용은 [요청, 응답 예시](./example.md)를 확인해주세요.
 
-- 목록(GET) 기능은 배열형식으로 응답됩니다.
-- 읽기(GET) 기능은 내용 필드들이 object 형태로 응답됩니다.
-- 등록(POST) 기능은 클라이언트가 보낸 값에 자동으로 생성된 필드(id, createdAt, updatedAt 등)가 함께 응답됩니다.
-- 수정(PUT) 기능은 클라이언트가 보낸 값으로 갱신이 된 내용이 응답됩니다.
-- 삭제(DELETE) 기능은 `{"msg": "success"}` 가 응답됩니다.
+### 제출방법
+
+이 레포를 지원자의 Github으로 fork 한뒤에 개발을 진행합니다. 마감일 기준 KST 23:59:59 까지의 커밋까지 인정이됩니다.
+이 버튼을 눌러주세요.
+ <!-- Place this tag where you want the button to render. -->
+<a class="github-button" href="https://github.com/ntkme/github-buttons/fork" data-icon="octicon-repo-forked" data-size="large" aria-label="Fork ntkme/github-buttons on GitHub">Fork</a>
 
 ### 가산점 항목
 
-- 브랜치전략을 나누어서 개발
+- 브랜치를 나누어서 개발
 - validation 처리, 빈값의 경우 클라이언트 측 에러임을 알려주기
 - 아래의 기능을 추가로 개발합니다.
   1. 할일 정렬: `GET /todos?order[createdAt]=desc`
@@ -78,16 +92,16 @@
 
 > **Tip**: 위의 URL쿼리(`?order[createdAt]=desc`)의 경우 [qs 라이브러리](https://www.npmjs.com/package/qs)를 사용하시면 쉽게 구현이 가능합니다.
 
-### 제출방법
-
-이 레포를 지원자의 Github으로 fork 한뒤에 개발을 진행하시면 됩니다. 마감일 기준 하루 전까지의 커밋까지 인정이됩니다.
-
 ***
 
 #### [부록] 채점 방법
 
 각 API들에 대하여 e2e 테스트를 진행합니다.
 
-test 폴더에 정의되어있습니다.
+[test](./test) 폴더에 정의되어있습니다.
 
 `npm test` 를 통해 실시할 수 있습니다.
+
+
+<!-- Place this tag in your head or just before your close body tag. -->
+<script async defer src="https://buttons.github.io/buttons.js"></script>
