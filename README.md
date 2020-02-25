@@ -19,7 +19,8 @@
 - body-parser
 - dotenv
 
-개발에만 집중할 수 있도록, 일부 서버 환경이 포함되어 있습니다.([express](https://www.npmjs.com/package/express)), 이 레포지토리를 클론한 후에 다음의 명령어로 시작하십시오.
+개발에만 집중할 수 있도록, 일부 서버 환경이 포함되어 있습니다.([express](https://www.npmjs.com/package/express)), 이 레포지토리를 클론한 후에 다음의 명령어로 시작할 수 있습니다.
+
 ```bash
 # 기본 라이브러리 설치
 > npm install
@@ -33,9 +34,10 @@
 
 
 ## 과제
-다음의 기획과 API목록을 읽고, 할일을 만들고 관리를 할 수 있는 **Restful API 서버** 를 구현해주시기 바랍니다.
-이 프로그램은 다음과 같은 기능이 있습니다.
+다음의 기획과 API목록을 읽고, 적절한 **Restful API 서버** 를 구현해주시기 바랍니다.
 
+#### 기획
+철수는 할일을 만들고 관리할 수 있는 프로그램을 제작하고자한다. 이 프로그램에는 다음과 같은 기능이 있다.
 - 할일이 있다.
 - 할일은 다음의 필드를 가지고 있다.
 
@@ -69,6 +71,7 @@
     }
     ```
 
+#### 작성해야하는 API
 이 서버에서 요구하는 **API는 총 11개**입니다.
 
 1. 할일 등록: `POST /todos`
@@ -77,17 +80,13 @@
 4. 할일 수정: `PUT /todos/:todoId`
 5. 할일 완료: `PUT /todos/:todoId/complete`
 6. 할일 삭제: `DELETE /todos/:todoId`
-7. 댓글 등록: `POST /todos/:todoId/comments`
-8. 댓글 목록: `GET /todos/:todoId/comments`
-9. 댓글 읽기: `GET /todos/:todoId/comments/:commentId`
-10. 댓글 수정: `PUT /todos/:todoId/comments/:commentId`
-11. 댓글 삭제: `DELETE /todos/:todoId/comments/:commentId`
+7. 할일에 댓글 등록: `POST /todos/:todoId/comments`
+8. 할일의 댓글 목록: `GET /todos/:todoId/comments`
+9. 할일의 댓글 읽기: `GET /todos/:todoId/comments/:commentId`
+10. 할일의 댓글 수정: `PUT /todos/:todoId/comments/:commentId`
+11. 할일의 댓글 삭제: `DELETE /todos/:todoId/comments/:commentId`
 
 각 API의 [요청, 응답 예시](./example.md)를 확인해주세요.
-
-#### 참고사항
-
-이 레포를 지원자의 Github으로 fork 한뒤에 개발을 진행합니다. 마감일 기준 KST 23:59:59 까지의 커밋까지 인정이됩니다.
 
 ### 제출방법
 
