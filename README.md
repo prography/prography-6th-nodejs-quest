@@ -19,7 +19,7 @@
 - body-parser
 - dotenv
 
-개발에만 집중할 수 있도록, 일부 서버 환경이 포함되어 있습니다.([express](https://www.npmjs.com/package/express)), 이 레포지토리를 클론한 후에 다음의 명령어로 시작할 수 있습니다.
+개발에만 집중할 수 있도록, 일부 서버 환경([express](https://www.npmjs.com/package/express))이 포함되어 있습니다. `src` 디렉토리에서 작업을 하시면 됩니다. 이 레포지토리를 클론한 후에 다음의 명령어로 서버를 시작할 수 있습니다.
 
 ```bash
 # packages 설치
@@ -28,8 +28,6 @@
 # 서버 실행
 > npm start
 
-# 테스트 실행
-> npm test
 ```
 
 ## 3.과제
@@ -98,7 +96,7 @@ fork가 된 이후에 진행하기 때문에, 제출이 필요 없습니다. 마
 
 ### 5.채점방법
 
-`npm test` 명령어를 실행하면, 각 API들에 대하여 e2e 테스트를 미리 진행할 수 있습니다. 목록에 있는 모든 API(11개)를 각 한번씩 호출합니다. 테스트 결과에 맞춰서 점수를 책정합니다. 테스트 코드는 [test](./test) 폴더에 정의되어있습니다. 테스트 라이브러리는 [jest](https://jestjs.io/)와 [supertest](https://github.com/visionmedia/supertest)를 사용합니다.
+`npm test` 명령어를 실행하면, 각 API들에 대하여 e2e 테스트를 미리 진행할 수 있습니다. 목록에 있는 모든 API(11개)중 생성 관련 코드는 3번, 이외의 요청은 각 한번씩 호출합니다. 테스트를 통과한 항목 수로 점수를 채점합니다. 테스트 코드는 [test](./test) 폴더에 정의되어있습니다. 테스트 라이브러리는 [jest](https://jestjs.io/)와 [supertest](https://github.com/visionmedia/supertest)를 사용합니다.
 
 ### 6.가산점 항목
 
