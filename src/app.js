@@ -4,7 +4,7 @@ import bodyParser from "body-parser";
 import morgan from "morgan";
 import toDoRouter from "./api/routes/toDoRouter";
 import commentRouter from "./api/routes/commentRouter";
-import "./models";
+import "../models";
 
 const app = express();
 
