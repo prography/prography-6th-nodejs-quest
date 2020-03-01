@@ -38,5 +38,10 @@
     "path": "/todos/:todoId/comments",
     "method": "get",
     "handler": "comment/getCommentList.js"
+  },
+  {
+    "path": "/todos/:todoId/comments/:commentId",
+    "method": "get",
+    "handler": "comment/getComment.js"
   }
 ]
