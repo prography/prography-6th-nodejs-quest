@@ -1,0 +1,7 @@
+[
+  {
+    "path": "/todos",
+    "method": "post",
+    "handler": "todo/addTodo.js"
+  }
+]
