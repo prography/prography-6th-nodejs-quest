@@ -28,5 +28,10 @@
     "path": "/todos/:todoId",
     "method": "delete",
     "handler": "todo/deleteTodo.js"
+  },
+  {
+    "path": "/todos/:todoId/comments",
+    "method": "post",
+    "handler": "comment/addComment.js"
   }
 ]
