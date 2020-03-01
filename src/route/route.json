@@ -3,5 +3,10 @@
     "path": "/todos",
     "method": "post",
     "handler": "todo/addTodo.js"
+  },
+  {
+    "path": "/todos",
+    "method": "get",
+    "handler": "todo/getTodoList.js"
   }
 ]
