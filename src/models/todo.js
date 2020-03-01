@@ -13,11 +13,10 @@ const TodoSchema = new Schema({
     updatedAt: Date, // 날짜, 생성시 자동 생성, 수정시 자동 갱신,
   },
   {
-    autoIndex: false,
     versionKey: false,
     timestamps: {
-      createdAt: 'dateCreated',
-      updatedAt: 'dateUpdated'
+      createdAt: 'createdAt',
+      updatedAt: 'updatedAt'
     }
   })
 

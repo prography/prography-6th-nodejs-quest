@@ -14,7 +14,6 @@ const obj = JSON.parse(fs.readFileSync('./src/route/route.json', 'utf8'))
 obj.map(v => {
   try {
     app[v.method](v.path, require('./route/' + v.handler))
-    console.log(v.method + v.path + v.handler)
   } catch (e) {
     console.log(e)
   }
