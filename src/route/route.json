@@ -48,5 +48,10 @@
     "path": "/todos/:todoId/comments/:commentId",
     "method": "put",
     "handler": "comment/putComment.js"
+  },
+  {
+    "path": "/todos/:todoId/comments/:commentId",
+    "method": "delete",
+    "handler": "comment/deleteComment.js"
   }
 ]
