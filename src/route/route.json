@@ -18,5 +18,10 @@
     "path": "/todos/:todoId",
     "method": "put",
     "handler": "todo/putTodo.js"
+  },
+  {
+    "path": "/todos/:todoId/complete",
+    "method": "put",
+    "handler": "todo/completeTodo.js"
   }
 ]
