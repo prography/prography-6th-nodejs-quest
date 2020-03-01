@@ -1,9 +1,24 @@
-import express from 'express';
+import express from 'express'
+import dotenv from 'dotenv'
+import fs from 'fs'
+import mongo from './mongo'
 
-const app = express();
+dotenv.config()
+mongo()
 
-app.use('/hello-world', (req, res) => {
-  res.send('hello world');
+const app = express()
+const bodyParser = require('body-parser')
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+
+const obj = JSON.parse(fs.readFileSync('./src/route/route.json', 'utf8'))
+obj.map(v => {
+  try {
+    app[v.method](v.path, require('./route/' + v.handler))
+    console.log(v.method + v.path + v.handler)
+  } catch (e) {
+    console.log(e)
+  }
 })
 
-export default app;
+
+export default app
