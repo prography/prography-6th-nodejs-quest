@@ -8,5 +8,10 @@
     "path": "/todos",
     "method": "get",
     "handler": "todo/getTodoList.js"
+  },
+  {
+    "path": "/todos/:todoId",
+    "method": "get",
+    "handler": "todo/getTodo.js"
   }
 ]
