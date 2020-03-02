@@ -1,13 +1,18 @@
 import express from "express";
 import commentRouter from "./commentRouter";
-import { createTodo, getTodos } from "../controllers/toDoController";
+import {
+  createTodo,
+  getTodos,
+  getTodo,
+  updateTodo
+} from "../controllers/toDoController";
 
 const toDoRouter = express.Router();
 
 toDoRouter.post("/", createTodo);
 toDoRouter.get("/", getTodos);
-toDoRouter.get("/:todoId", () => console.log("3"));
-toDoRouter.put("/:todoId", () => console.log("4"));
+toDoRouter.get("/:todoId", getTodo);
+toDoRouter.put("/:todoId", updateTodo);
 toDoRouter.put("/:todoId/complete", () => console.log("5"));
 toDoRouter.delete("/:todoId", () => console.log("6"));
 
