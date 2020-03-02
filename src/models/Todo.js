@@ -1,5 +1,4 @@
 import mongoose from "mongoose";
-
 const TodoSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -23,6 +22,14 @@ const TodoSchema = new mongoose.Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  }
+});
+
+TodoSchema.set("toJSON", {
+  virtuals: true,
+  versionKey: false,
+  transform: (doc, ret) => {
+    delete ret._id;
   }
 });
 

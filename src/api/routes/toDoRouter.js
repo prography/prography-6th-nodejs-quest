@@ -1,11 +1,11 @@
 import express from "express";
 import commentRouter from "./commentRouter";
-import { createTodo } from "../controllers/toDoController";
+import { createTodo, getTodos } from "../controllers/toDoController";
 
 const toDoRouter = express.Router();
 
 toDoRouter.post("/", createTodo);
-toDoRouter.get("/", () => console.log("2"));
+toDoRouter.get("/", getTodos);
 toDoRouter.get("/:todoId", () => console.log("3"));
 toDoRouter.put("/:todoId", () => console.log("4"));
 toDoRouter.put("/:todoId/complete", () => console.log("5"));

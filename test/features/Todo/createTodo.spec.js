@@ -3,7 +3,7 @@ import supertest from "supertest";
 
 const testClient = supertest(app);
 
-describe.only("testTodo", () => {
+describe("testTodo", () => {
   test("createTodo", async () => {
     const payloads = [
       {
@@ -28,8 +28,8 @@ describe.only("testTodo", () => {
       const payload = payloads[i];
       const res = await testClient.post("/todos").send(payload);
       expect(res.status).toBe(200);
-      // expect(res.body).toMatchObject(payload);
-      // process.env[`TEST_TODO_ID_${i}`] = res.body.id;
+      expect(res.body).toMatchObject(payload);
+      process.env[`TEST_TODO_ID_${i}`] = res.body.id;
     }
     // 첫번째 test todo id를 수정, 삭제 키로 사용
     process.env.TEST_TODO_ID = process.env.TEST_TODO_ID_0;
