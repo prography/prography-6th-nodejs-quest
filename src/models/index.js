@@ -18,8 +18,21 @@ models.Sequelize = Sequelize
 
 models.todo = require('./todo')(sequelize, Sequelize);
 models.comment = require('./comment')(sequelize, Sequelize);
+//models.tag = require('./tag')(sequelize, Sequelize);
 
 models.todo.hasMany(models.comment, { sourcekey: 'id' });
 models.comment.belongsTo(models.todo, { targetkey: 'id'});
+
+/*models.todo.belongsToMany(models.tag, {
+  through: 'todo_tag',
+  foreignKey: 'id'
+});
+
+models.tag.belongsToMany(models.todo, {
+  through: 'todo_tag',
+  foreignKey: 'id'
+});*/
+
+
 
 module.exports = models;

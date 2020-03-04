@@ -3,20 +3,33 @@ var com_models = require('../models').comment;
 
 const postTodo = (req, res, next) => {
 
-  const name = req.body;
+  const body = req.body;
 
     models.create({
-      title: name.title,
-      description: name.description,
-    }).then((todo) => res.status(201).json(todo));
+      title: body.title,
+      description: body.description,
+      tags: JSON.stringify(body.tags),
+    }).then((todo) => {
+      todo.tags = JSON.parse(todo.tags);
+      return res.status(200).json(todo);
+    });
   
 }
 
 const getTodos = async (req, res, next) => {
   try {
-    const users = await models.findAll();
+    await models.findAll()
+    .then((todo) =>{
+      console.log(todo.length)
+      for( var i = 0; i < todo.length; i++){
+        todo[i].tags = JSON.parse(todo[i].tags);
+        
+      }
 
-    return res.json(users);
+      return res.status(200).json(todo);
+    })
+
+    
   } catch (e) {
     next(e)
   }
@@ -25,11 +38,12 @@ const getTodos = async (req, res, next) => {
 const updateTodo = async (req, res, next) => {
   try {
     const id = parseInt(req.params.todoId,10);
-    const name = req.body;
+    const body = req.body;
 
     await models.update({
-      title: name.title,
-      description: name.description,
+      title: body.title,
+      description: body.description,
+      tags: JSON.stringify(body.tags),
     },{
       where: {
         id: id
@@ -42,7 +56,9 @@ const updateTodo = async (req, res, next) => {
         }
       });
     })
-    .then((todo) => res.status(201).json(todo));
+    .then((todo) => {
+      todo.tags = JSON.parse(todo.tags);
+      return res.status(200).json(todo)});
   } catch (e) {
     next(e)
   }
@@ -58,12 +74,13 @@ const getTodo = async (req, res, next) => {
         where: {
           id: id
         }
-      }).then(user =>{
-        if(!user){
+      }).then(todo =>{
+        if(!todo){
           return res.status(404).json({err:'No User'});
         }
-        return res.json(user);
-      })
+        todo.tags = JSON.parse(todo.tags);
+        return res.status(200).json(todo)
+      });
     }catch(e){
       next(e)
     }
@@ -80,7 +97,7 @@ const deleteTodo = async (req, res, next) => {
         id: id
       }
     })
-    .then(()=> {return res.json({message: 'success'})})
+    .then(()=> {return res.json({msg: 'success'})})
   } catch (e) {
     next(e)
   }
@@ -104,7 +121,7 @@ const completeTodo = async (req, res, next) => {
         }
       });
     })
-    .then((todo) => res.status(201).json(todo));
+    .then((todo) => res.status(200).json(todo));
   } catch (e) {
     next(e)
   }
@@ -146,8 +163,8 @@ const getComment = async (req, res, next) => {
       if(!comment){
         return res.status(404).json({err:'No User'});
       }
-      return res.json(comment);
-    })
+      res.status(200).json(comment)
+    });
   }catch(e){
     next(e)
   }
@@ -156,13 +173,13 @@ const getComment = async (req, res, next) => {
 const postComment = async(req, res, next) => {
   try{
     const id = parseInt(req.params.todoId,10);
-    const name = req.body;
+    const body = req.body;
 
     await com_models.create({
         todoId: id,
-        contents: name.contents
+        contents: body.contents
         
-      }).then((comment) => res.status(201).json(comment));
+      }).then((comment) => res.status(200).json(comment));
   } catch(e){
     next(e)
   }
@@ -172,10 +189,10 @@ const updateComment = async (req, res, next) => {
   try {
     const id = parseInt(req.params.todoId,10);
     const com_id = parseInt(req.params.commentID,10);
-    const name = req.body;
+    const body = req.body;
 
     await com_models.update({
-      contents: name.contents
+      contents: body.contents
     },{
       where: {
         todoId: id,
@@ -190,7 +207,7 @@ const updateComment = async (req, res, next) => {
         }
       });
     })
-    .then((comment) => res.status(201).json(comment));
+    .then((comment) => res.status(200).json(comment));
   } catch (e) {
     next(e)
   }
@@ -209,7 +226,7 @@ const deleteComment = async (req, res, next) => {
         id: com_id
       }
     })
-    .then(()=> {return res.json({message: 'success'})})
+    .then(()=> {return res.json({msg: 'success'})})
   } catch (e) {
     next(e)
   }

@@ -13,18 +13,18 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.BOOLEAN,
         defaultValue: false,
       },
-      //tags: {
-        //type: DataTypes.STRING(50),
-      //},
+      tags: {
+        type: DataTypes.STRING(100),
+      },
       createdAt: {
         type: DataTypes.DATE,
         //allowNull: false,
-        defalutValue: Date.now,
+        defalutValue: sequelize.literal('now()'),
       },
       updatedAt: {
         type: DataTypes.DATE,
         //allowNull: false,
-        defalutValue: Date.now,
+        defalutValue: sequelize.literal('now()'),
       }
     }, 
     {
